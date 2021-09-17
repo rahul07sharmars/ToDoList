@@ -1,10 +1,16 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
 import 'package:todo_flutter/widgets/tasklist.dart';
+import 'package:todo_flutter/screens/addtask_screen.dart';
+
 class TasksScreen extends StatelessWidget {
-  const TasksScreen({Key? key}) : super(key: key);
- 
+  // const TasksScreen({Key? key}) : super(key: key);
+
+  // buildButtonSheet(BuildContext context) {
+  //   return Container();
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,7 +19,10 @@ class TasksScreen extends StatelessWidget {
         backgroundColor: Colors.lightBlueAccent,
         child: Icon(Icons.add),
         onPressed: () {
-          showModalBottomSheet(context: context, builder: builder)
+          showModalBottomSheet(
+            context: context,
+            builder: (context) =>AddTaskScreen(),
+          );
         },
       ),
       body: Column(
@@ -71,9 +80,7 @@ class TasksScreen extends StatelessWidget {
               ),
               child: TaskList(),
             ),
-          
           ),
-          
         ],
       ),
     );
